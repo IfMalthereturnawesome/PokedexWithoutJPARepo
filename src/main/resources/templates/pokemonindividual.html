@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+    <link th:href="@{/CSS/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navigation">
+    <div class="big-container" >
+        <div class="small-container">
+            <a href="../" class="links" >Home</a>
+        </div>
+        <div class="small-container">
+            <a href="../signup" class="links">Add Pokemon</a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container">
+    <div th:switch="${pokemons}">
+        <h2 th:case="null">No pokemons yet!</h2>
+        <div th:case="*">
+            <button><a href="/signup" class="button-link">Add new Pokemon</a></button>
+
+        </div>
+
+
+    </div>
+    <h1>Pokemon liste</h1>
+    <table>
+        <thead>
+        <tr>
+            <th scope="col"><a class="link">#</a>
+            </th>
+            <th scope="col">
+                <a class="link">Name</a>
+            </th>
+            <th scope="col">
+                <a class="link">Speed</a>
+            </th>
+            <th scope="col">
+                <a class="link">Sp Defence</a>
+            </th>
+            <th scope="col">
+                <a class="link">Sp Attack</a>
+            </th>
+            <th scope="col">
+                <a class="link">Defence</a>
+            </th>
+            <th scope="col">
+                <a class="link">Attack</a>
+            </th>
+            <th scope="col">
+                <a class="link">HP</a>
+            </th>
+            <th scope="col">
+                <a class="link">Pri Type</a>
+            </th>
+            <th scope="col">
+                <a class="link">Sec Type</a>
+            </th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Image</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pokemon: ${pokemons}">
+            <td th:text="${pokemon.id}">
+            </td>
+            <td th:text="${pokemon.name}">
+            </td>
+            <td th:text="${pokemon.speed}">
+            </td>
+            <td th:text="${pokemon.specialDefence}">
+            </td>
+            <td th:text="${pokemon.specialAttack}">
+            </td>
+            <td th:text="${pokemon.defence}">
+            </td>
+            <td th:text="${pokemon.attack}">
+            </td>
+            <td th:text="${pokemon.hp}">
+            </td>
+            <td th:text="${pokemon.primaryType}">
+            </td>
+            <td th:text="${pokemon.secondaryType}">
+            </td>
+            <td class="row-update"><a class="link-row link" th:href="@{/edit/{id}(id=${pokemon.id})}">edit</a></td>
+            <td class="row-delete"><a class="link-row link" th:href="@{/delete/{id}(id=${pokemon.id})}">delete</a></td>
+            <td><img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ ${pokemon.id} + '.png'}" alt="pokemon"> </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>

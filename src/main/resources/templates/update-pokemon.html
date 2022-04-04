@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon</title>
+    <link th:href="@{/CSS/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navigation">
+    <div class="big-container" >
+        <div class="small-container">
+            <a href="../" class="links" >Home</a>
+        </div>
+        <div class="small-container">
+            <a href="../signup" class="links">Add Pokemon</a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container">
+    <form action="#"
+          th:action="@{/update/{id}(id=${pokemon.id})}"
+          th:object="${pokemon}"
+          method="post" class="form-control">
+        <label class="header" for="name">Name</label>
+        <input class="input-field" type="text" th:field="*{name}" id="name" placeholder="Name">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <label class="header" for="speed">Speed</label>
+        <input class="input-field" type="text" th:field="*{speed}" id="speed" placeholder="Speed">
+        <span th:if="${#fields.hasErrors('speed')}" th:errors="*{speed}"></span>
+        <label class="header" for="specialDefence">Special Defence</label>
+        <input class="input-field" type="text" th:field="*{specialDefence}" id="specialDefence"
+               placeholder="Special Defence">
+        <span th:if="${#fields.hasErrors('specialDefence')}" th:errors="*{specialDefence}"></span>
+        <label class="header" for="specialAttack">Special Attack</label>
+        <input class="input-field" type="text" th:field="*{specialAttack}" id="specialAttack"
+               placeholder="Special Attack">
+        <span th:if="${#fields.hasErrors('specialAttack')}" th:errors="*{specialAttack}"></span>
+        <label class="header" for="defence">Defence</label>
+        <input class="input-field" type="text" th:field="*{defence}" id="defence" placeholder="Defence">
+        <span th:if="${#fields.hasErrors('defence')}" th:errors="*{defence}"></span>
+        <label class="header" for="attack">Attack</label>
+        <input class="input-field" type="text" th:field="*{attack}" id="attack" placeholder="Attack">
+        <span th:if="${#fields.hasErrors('attack')}" th:errors="*{attack}"></span>
+        <label class="header" for="hp">HP</label>
+        <input class="input-field" type="text" th:field="*{hp}" id="hp" placeholder="HP">
+        <span th:if="${#fields.hasErrors('hp')}" th:errors="*{hp}"></span>
+        <label class="header" for="primaryType">Choose Primary Type</label>
+        <select name="primaryType" id="primaryType" class="select-form">
+            <option value="Fire">Fire</option>
+            <option value="Water">Water</option>
+            <option value="Rock">Rock</option>
+            <option value="Psychic">Psychic</option>
+            <option value="Poison">Poison</option>
+            <option value="Normal">Normal</option>
+            <option value="Ice">Ice</option>
+            <option value="Ground">Ground</option>
+            <option value="Grass">Grass</option>
+            <option value="Ghost">Ghost</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Fairy">Fairy</option>
+            <option value="Electric">Electric</option>
+            <option value="Dragon">Dragon</option>
+            <option value="Bug">Bug</option>
+        </select>
+        <span th:if="${#fields.hasErrors('primaryType')}" th:errors="*{primaryType}"></span>
+        <label class="header" for="secondaryType">Secondary Type</label>
+        <select name="secondaryType" id="secondaryType" class="select-form">
+            <option value="null">None</option>
+            <option value="Fire">Fire</option>
+            <option value="Water">Water</option>
+            <option value="Rock">Rock</option>
+            <option value="Psychic">Psychic</option>
+            <option value="Poison">Poison</option>
+            <option value="Normal">Normal</option>
+            <option value="Ice">Ice</option>
+            <option value="Ground">Ground</option>
+            <option value="Grass">Grass</option>
+            <option value="Ghost">Ghost</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Fairy">Fairy</option>
+            <option value="Electric">Electric</option>
+            <option value="Dragon">Dragon</option>
+            <option value="Bug">Bug</option>
+        </select>
+        <span th:if="${#fields.hasErrors('secondaryType')}" th:errors="*{secondaryType}"></span>
+        <input class="submit-button" type="submit" value="Update Pokemon">
+    </form>
+
+</div>
+</body>
+</html>
