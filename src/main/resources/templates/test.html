@@ -27,47 +27,25 @@
         </div>
     </div>
     <h1>Pokemon liste</h1>
-
-    <div class="container-cards">
-        <div th:each="pokemon : ${pokemons}">
-            <div class="card">
-                <div class="card-header">
-                    <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
-                </div>
-                <div class="card-body">
-                    <span class="tag tag-teal" th:text="${pokemon.name}">name</span>
-                    <h4 th:text="${pokemon.speed}">
-                    </h4>
-                    <p th:text="${pokemon.specialDefence}">
-                    </p>
-                    <div class="button">
-                        <button><a href="../{link}" class="button-link">Link</a> </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <table>
         <thead>
         <tr>
             <th scope="col">#
             </th>
             <th scope="col">
-           Name
+                Name
             </th>
             <th scope="col">
-               Speed
+                Speed
             </th>
             <th scope="col">
-           Sp Defence
+                Sp Defence
             </th>
             <th scope="col">
-              Sp Attack
+                Sp Attack
             </th>
             <th scope="col">
-               Defence
+                Defence
             </th>
             <th scope="col">
                 Attack
@@ -76,10 +54,10 @@
                 HP
             </th>
             <th scope="col">
-               Pri Type
+                Pri Type
             </th>
             <th scope="col">
-               Sec Type
+                Sec Type
             </th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
@@ -87,7 +65,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="card" th:each="pokemon: ${pokemons}">
+        <tr th:each="pokemon: ${pokemons}">
             <td>
                 <a th:href="@{/{id}(id=${pokemon.id})}" class="individual"  th:text="${pokemon.id}" target="_blank" ></a>
             </td>
